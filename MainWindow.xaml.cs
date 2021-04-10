@@ -1,4 +1,5 @@
-﻿using DesktopNewsApp.Helpers;
+﻿using NewsApp.Core.Helpers;
+using NewsApp.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopNewsApp
+namespace NewsApp.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -28,7 +29,7 @@ namespace DesktopNewsApp
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            await GenericFactory<Client>.CreateInstance().GetNews(new RequestModel
+            await GenericFactory<Services>.CreateInstance().GetNews(new RequestModel
             {
                 Categories = "business,tech",
                 Search = "President",
@@ -37,7 +38,7 @@ namespace DesktopNewsApp
                 Token = "HgcpXI8z8J7yLHOCfRxpluxoGgUA7zYbGmq5PdAR",
                 Url = "https://api.thenewsapi.com/v1/news/all"
 
-            }); ;
+            });
           
         }
     }

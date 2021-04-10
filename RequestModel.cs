@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NewsApp.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DesktopNewsApp
+namespace NewsApp.WPF
 {
-    public class RequestModel
+    public class RequestModel : IRequestModel
     {
         
         public string Token { get; set; }

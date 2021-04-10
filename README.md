@@ -1,1 +1,1 @@
-# DesktopNewsApp
+# NewsApp.WPF
