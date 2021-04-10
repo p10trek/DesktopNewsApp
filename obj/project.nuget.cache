@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QyJfrMdHjdnM56ImDyQDwdT/1cDf8VjJQTdQ7pPREy/m4YjavxCAvOaFUP6Tyr/jaVW/xMdhyhapjvUzONz+rQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\p10tr\\source\\repos\\DesktopNewsApp\\DesktopNewsApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\p10tr\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+  ],
+  "logs": []
+}
