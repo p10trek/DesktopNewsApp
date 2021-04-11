@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="7.1.2" />
     <PackageReference Include="MvvmCross.Platforms.Wpf" Version="7.1.2" />
+    <PackageReference Include="MvvmCross.Plugin.MethodBinding" Version="7.1.2" />
     <PackageReference Include="RestSharp" Version="106.11.7" />
   </ItemGroup>
 

@@ -1,0 +1,88 @@
+﻿<views:MvxWpfView x:Class="NewsApp.WPF.Views.AllNewsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+             xmlns:local="clr-namespace:NewsApp.WPF.Views"
+             xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+           
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type core:AllNewsModel}">
+                <local:NewsList/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding General, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>General</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Sports, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Sports</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Health, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Health</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Tech, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Tech</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Food, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Food</TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Science, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Science</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Business, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Business</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Entertainment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Entertainment</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Politics, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Politics</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked ="{Binding Travel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock>Travel</TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <DockPanel Grid.Column="2">
+            <TextBlock DockPanel.Dock="Top">Type Your Search Query</TextBlock>
+            <TextBox Height="Auto"  Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        
+        <Button Grid.Column="3"  Content="Find News!" FontSize="20" Command="{Binding DoWorkCommand }" />
+        <ListBox   ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+    </views:MvxWpfView>
