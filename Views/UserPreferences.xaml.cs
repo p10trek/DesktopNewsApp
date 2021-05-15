@@ -1,12 +1,6 @@
-﻿using MvvmCross.Platforms.Wpf.Views;
-using NewsApp.Core;
-using NewsApp.Core.Helpers;
-using NewsApp.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,16 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewsApp.WPF
+namespace NewsApp.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserPreferences.xaml
     /// </summary>
-    public partial class MainWindow : MvxWindow
+    public partial class UserPreferences : UserControl
     {
-        public MainWindow()
+        public UserPreferences()
         {
             InitializeComponent();
-        }    
+        }
     }
 }
