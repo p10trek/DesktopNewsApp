@@ -5,13 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
              xmlns:local="clr-namespace:NewsApp.WPF.Views"
-             xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core"
-             mc:Ignorable="d" 
+             xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core" 
+             xmlns:components="clr-namespace:NewsApp.WPF.Components"
+                  mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <views:MvxWpfView.Resources>
+        <BooleanToVisibilityConverter x:Key="Visibility" />
+        <BooleanToVisibilityConverter x:Key="PrefVisibility" />
+        <BooleanToVisibilityConverter x:Key="NewsVisibility" />
+        
+    </views:MvxWpfView.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -26,81 +34,29 @@
                 <local:NewsList/>
             </DataTemplate>
         </Grid.Resources>
-
-        <StackPanel Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding General, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>General</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Sports, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Sports</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Health, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Health</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Tech, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Tech</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Food, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Food</TextBlock>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Science, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Science</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Business, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Business</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Entertainment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Entertainment</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Politics, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Politics</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Travel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Travel</TextBlock>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Column="2" >
-            <TextBlock DockPanel.Dock="Top" Margin="1" FontSize="12" Text="Type your search query" />
-            <TextBlock DockPanel.Dock="Top" Margin="1" FontSize="12" Text="Domains" />
-            <TextBlock DockPanel.Dock="Top" Margin="1" FontSize="12" Text="Languages" />
-            <TextBlock DockPanel.Dock="Top" Margin="1" FontSize="12" Text="Date from" />
-        </StackPanel>
-        <StackPanel Grid.Column="3" >
-            <TextBox Background="LightGray" FontSize="12" Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Background="LightGray" FontSize="12"  Text="{Binding Domains, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox Background="LightGray" FontSize="12"  Text="{Binding Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <DatePicker Height="18" FontSize="8" HorizontalAlignment="Left" SelectedDate="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
-        </StackPanel>
-        <Button  Grid.Column="4"  Content="Find News!" FontSize="20" Command="{Binding DoWorkCommand }" />
-
-        <StackPanel Visibility="{Binding LoginPanelVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+        <components:MenuStrip Grid.ColumnSpan="5" Grid.Row="0"/>
+        <components:UserPreferences Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding PropertiesVisibility, Converter={StaticResource PrefVisibility}}"/>
+      
+        <StackPanel  Visibility="{Binding LoginPanelVisibility, Converter={StaticResource Visibility}}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
         <Label FontSize="20" Foreground="White">Login</Label>
             <TextBox Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label FontSize="20" Foreground="White">Password</Label>
-            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Content="{Binding LoginMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
+            <Label FontSize="20" Foreground="White">Password</Label>
+            <components:BindablePasswordBox Grid.Column="1" Password="{Binding Password}" />
+            <Label Content="{Binding PasswordMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
         <Label FontSize="20" Foreground="White">Token</Label>
-            <TextBox Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Command="{Binding SignInCommand }">Create User or Login</Button>
+            <TextBox x:Name="loginB" Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Command="{Binding SignInCommand}">
+                Create User or Login</Button>
         </StackPanel>
 
-        <ListBox Visibility="Hidden"  ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Background="Gray">
+        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Background="Gray">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        
     </Grid>
     </views:MvxWpfView>

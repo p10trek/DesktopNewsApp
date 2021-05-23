@@ -5,6 +5,7 @@ using NewsApp.Core.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,14 +23,14 @@ namespace NewsApp.WPF.Views
     /// <summary>
     /// Interaction logic for AllNewsView.xaml
     /// </summary>
-    public partial class AllNewsView : MvxWpfView
+    public partial class AllNewsView : MvxWpfView, ISecure
     {
         public AllNewsView()
         {
             InitializeComponent();
         }
 
-
+        public SecureString Password { get; set; }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {

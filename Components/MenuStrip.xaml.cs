@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewsApp.WPF.Views
+namespace NewsApp.WPF.Components
 {
     /// <summary>
-    /// Interaction logic for UserPreferences.xaml
+    /// Interaction logic for MenuStrip.xaml
     /// </summary>
-    public partial class UserPreferences : UserControl
+    public partial class MenuStrip : UserControl
     {
-        public UserPreferences()
+        public MenuStrip()
         {
             InitializeComponent();
         }
