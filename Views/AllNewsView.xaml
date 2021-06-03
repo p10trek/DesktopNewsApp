@@ -35,9 +35,14 @@
             </DataTemplate>
         </Grid.Resources>
         <components:MenuStrip Grid.ColumnSpan="5" Grid.Row="0"/>
-        <components:UserPreferences Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding PropertiesVisibility, Converter={StaticResource PrefVisibility}}"/>
-      
-        <StackPanel  Visibility="{Binding LoginPanelVisibility, Converter={StaticResource Visibility}}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        
+        <components:UserPreferences Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsPreferencesVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:QSearchPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsQSearchVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:ASearchPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsASearchVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:FavoritesPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsFavoritesVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:HistoryPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsHistoryVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:SignInPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsSignInVisible, Converter={StaticResource PrefVisibility}}"/>
+        <!--<StackPanel  Visibility="{Binding LoginPanelVisibility, Converter={StaticResource Visibility}}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
         <Label FontSize="20" Foreground="White">Login</Label>
             <TextBox Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="{Binding LoginMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
@@ -48,7 +53,7 @@
             <TextBox x:Name="loginB" Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Command="{Binding SignInCommand}">
                 Create User or Login</Button>
-        </StackPanel>
+        </StackPanel>-->
 
         <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Background="Gray">
             <ListBox.ItemContainerStyle>

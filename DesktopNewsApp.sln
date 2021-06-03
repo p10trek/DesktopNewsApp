@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsApp.WPF", "NewsApp.WPF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsApp.Core", "..\NewsApp.Core\NewsApp.Core.csproj", "{F279FB82-B7FB-4419-A104-8196D626A4BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsapp.Forms.UI", "..\Newsapp.Forms.UI\Newsapp.Forms.UI.csproj", "{2832B340-617A-479B-B188-76825E0B69C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsapp.Forms.UI", "..\Newsapp.Forms.UI\Newsapp.Forms.UI.csproj", "{2832B340-617A-479B-B188-76825E0B69C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsapp.Forms.Droid", "..\Newsapp.Forms.Droid\Newsapp.Forms.Droid.csproj", "{1F970798-54B7-4FD7-B2B5-9317AFED6D05}"
 EndProject

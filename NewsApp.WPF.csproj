@@ -20,4 +20,29 @@
     <ProjectReference Include="..\NewsApp.Core\NewsApp.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Components\ASearchPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\FavoritesPanel - Copy %282%29.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>FavoritesPanel.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Components\FavoritesPanel - Copy - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>FavoritesPanel - Copy.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Components\FavoritesPanel - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>FavoritesPanel.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Components\ASearchPanel.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
