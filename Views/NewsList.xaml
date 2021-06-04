@@ -8,15 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Title}" Margin="10 3" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock Text="{Binding Content}" Margin="10 3" Grid.Column="1" Grid.Row="1"/>
-        <Image Width="300" Source="{Binding Image}" Grid.Column="0" Grid.RowSpan="2"/>
+        <TextBlock Text="{Binding Title}" FontSize="20" FontFamily="Arial"  Grid.Row="0" Grid.Column="1"/>
+        <TextBlock Text="{Binding Content}" FontSize="15" Grid.Column="1" Grid.Row="1"/>
+        <Image Width="300" Source="{Binding Image}" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>

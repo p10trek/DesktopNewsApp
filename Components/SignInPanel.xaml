@@ -7,18 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <Label FontSize="20" Foreground="White">Login</Label>
-            <TextBox Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="{Binding LoginMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
-            <Label FontSize="20" Foreground="White">Password</Label>
-            <local:BindablePasswordBox Grid.Column="1" Password="{Binding Password}" />
-            <Label Content="{Binding PasswordMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
-            <Label FontSize="20" Foreground="White">Token</Label>
-            <TextBox x:Name="loginB" Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Command="{Binding SignInCommand}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+     
+            <Label FontSize="16" Padding="3" Foreground="White" Grid.Column="0" Grid.Row="0">Login</Label>
+            <TextBox FontSize="20" Grid.Column="1" Grid.Row="0" Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="2" Grid.Row="0" Content="{Binding LoginMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
+            <Label FontSize="16" Padding="3" Grid.Column="0" Grid.Row="1" Foreground="White">Password</Label>
+            <local:BindablePasswordBox FontSize="17" Grid.Column="1" Grid.Row="1" Password="{Binding Password}" />
+            <Label Grid.Column="2" Grid.Row="1" Content="{Binding PasswordMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
+            <Label FontSize="16" Padding="3" Grid.Column="0" Grid.Row="2" Foreground="White">Token</Label>
+            <TextBox FontSize="20" Grid.Column="1" Grid.Row="2"  x:Name="loginB" Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Command="{Binding SignInCommand}" Grid.Column="3" Grid.RowSpan="3">
                 Create User or Login</Button>
-        </StackPanel>
+
 
     </Grid>
 </UserControl>

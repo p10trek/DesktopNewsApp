@@ -20,6 +20,6 @@
         <Button Grid.Column="2" Command="{Binding ShowASearchCommand }">Advance Search</Button>
         <Button Grid.Column="3" Command="{Binding ShowFavoritesCommand }">Favorites</Button>
         <Button Grid.Column="4" Command="{Binding ShowHistoryCommand }">History</Button>
-        <Button Grid.Column="5" Command="{Binding ShowPreferencesCommand }">Login/Register</Button>
+        <Button Grid.Column="5" Command="{Binding ShowSignInCommand }">Login/Register</Button>
     </Grid>
 </UserControl>

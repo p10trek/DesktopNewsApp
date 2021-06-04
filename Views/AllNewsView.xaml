@@ -17,8 +17,8 @@
     </views:MvxWpfView.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -55,7 +55,7 @@
                 Create User or Login</Button>
         </StackPanel>-->
 
-        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Background="Gray">
+        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
