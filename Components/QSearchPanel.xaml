@@ -21,7 +21,7 @@
         <Label Grid.Column="0"  Grid.Row="0" FontSize="20">Search Query:</Label>
         <TextBox Grid.Column="1"  Grid.Row="0" Height="30" TextAlignment="Center" Padding="3" FontSize="15" VerticalAlignment="Center"/>
 
-        <CheckBox Grid.Column="1"  Grid.Row="1" FontSize="15" VerticalAlignment="Center"/>
+        <CheckBox Grid.Column="1"  Grid.Row="1" FontSize="15" VerticalAlignment="Center" IsChecked ="{Binding IsCustomSettings, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Column="0"  Grid.Row="1" FontSize="20" Content="Use saved preferences"/>
         
         <Button Grid.RowSpan="2"  Content="Search" Grid.Column="3"/>
