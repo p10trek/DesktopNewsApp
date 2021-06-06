@@ -6,7 +6,7 @@
              xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
              xmlns:local="clr-namespace:NewsApp.WPF.Views"
              xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core" 
-             xmlns:components="clr-namespace:NewsApp.WPF.Components"
+             xmlns:components="clr-namespace:NewsApp.WPF.Components" xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
                   mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <views:MvxWpfView.Resources>
@@ -55,11 +55,13 @@
                 Create User or Login</Button>
         </StackPanel>-->
 
-        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray">
+        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray" SelectedIndex="{Binding SelectedItem}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+  
                 </Style>
+
             </ListBox.ItemContainerStyle>
         </ListBox>
         

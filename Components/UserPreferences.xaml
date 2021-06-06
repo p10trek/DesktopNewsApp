@@ -73,6 +73,6 @@
             <TextBox Background="LightGray" FontSize="12"  Text="{Binding Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <DatePicker Height="18" FontSize="8" HorizontalAlignment="Left" SelectedDate="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
         </StackPanel>
-        <Button  Grid.Column="4" Height="55" VerticalAlignment="Top" Content="Save" FontSize="20" Command="{Binding DoWorkCommand }" />
+        <Button  Grid.Column="4" Height="55" VerticalAlignment="Top" Content="Save" FontSize="20" Command="{Binding SavePreferencesCommand }" />
     </Grid>
 </UserControl>

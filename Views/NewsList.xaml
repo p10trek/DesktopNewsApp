@@ -10,13 +10,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Title}" FontSize="20" FontFamily="Arial"  Grid.Row="0" Grid.Column="1"/>
-        <TextBlock Text="{Binding Content}" FontSize="15" Grid.Column="1" Grid.Row="1"/>
-        <Image Width="300" Source="{Binding Image}" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2"/>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Left" Padding="20" TextWrapping="Wrap" FontSize="20" FontFamily="Arial"  Grid.Row="0" Grid.Column="1"/>
+        <TextBlock Width="800" HorizontalAlignment="Left" Padding="20" Text="{Binding Content}" TextWrapping="Wrap" FontSize="15" Grid.Column="1" Grid.Row="1"/>
+        <Image Margin="20" Width="300" Source="{Binding Image}" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="2"/>
+        <Button Grid.Column="2" Grid.RowSpan="2" FontSize="50" Content="&#x0001F499;"/>
     </Grid>
 </UserControl>
