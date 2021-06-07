@@ -6,7 +6,7 @@
              xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
              xmlns:local="clr-namespace:NewsApp.WPF.Views"
              xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core" 
-             xmlns:components="clr-namespace:NewsApp.WPF.Components" xmlns:i1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+             xmlns:components="clr-namespace:NewsApp.WPF.Components"
                   mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <views:MvxWpfView.Resources>
@@ -42,26 +42,18 @@
         <components:FavoritesPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsFavoritesVisible, Converter={StaticResource PrefVisibility}}"/>
         <components:HistoryPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsHistoryVisible, Converter={StaticResource PrefVisibility}}"/>
         <components:SignInPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsSignInVisible, Converter={StaticResource PrefVisibility}}"/>
-        <!--<StackPanel  Visibility="{Binding LoginPanelVisibility, Converter={StaticResource Visibility}}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-        <Label FontSize="20" Foreground="White">Login</Label>
-            <TextBox Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="{Binding LoginMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
-            <Label FontSize="20" Foreground="White">Password</Label>
-            <components:BindablePasswordBox Grid.Column="1" Password="{Binding Password}" />
-            <Label Content="{Binding PasswordMsg, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red"/>
-        <Label FontSize="20" Foreground="White">Token</Label>
-            <TextBox x:Name="loginB" Text="{Binding Token, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Command="{Binding SignInCommand}">
-                Create User or Login</Button>
-        </StackPanel>-->
 
+        <components:WebBrowser Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsWebBrowserVisible, Converter={StaticResource PrefVisibility}}"/>
         <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray" SelectedIndex="{Binding SelectedItem}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-  
+                    <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="IsSelected" Value="True"/>
+                    </Trigger>
+                </Style.Triggers>
                 </Style>
-
             </ListBox.ItemContainerStyle>
         </ListBox>
         
