@@ -6,7 +6,15 @@
         xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="Gray">
+        <Window.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#75746F" />
+                <Setter Property="BorderThickness" Value="1,2,1,2"/>
+                <Setter Property="BorderBrush" Value="Gray"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </Window.Resources>
     <Grid>
-
+        
     </Grid>
 </views:MvxWindow>

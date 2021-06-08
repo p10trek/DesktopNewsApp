@@ -1,13 +1,6 @@
-﻿using MvvmCross.Platforms.Wpf.Views;
-using NewsApp.Core;
-using NewsApp.Core.Helpers;
-using NewsApp.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,18 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewsApp.WPF
+namespace NewsApp.WPF.Components
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HistoryPanel.xaml
     /// </summary>
-    public partial class MainWindow : MvxWindow,ISecure
+    public partial class HistoryPanel : UserControl
     {
-        public MainWindow()
+        public HistoryPanel()
         {
             InitializeComponent();
         }
-
-        public SecureString Password { get; set; }
     }
 }

@@ -5,84 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
              xmlns:local="clr-namespace:NewsApp.WPF.Views"
-             xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core"
-             mc:Ignorable="d" 
+             xmlns:core="clr-namespace:NewsApp.Core;assembly=NewsApp.Core" 
+             xmlns:components="clr-namespace:NewsApp.WPF.Components"
+                  mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <views:MvxWpfView.Resources>
+        <BooleanToVisibilityConverter x:Key="Visibility" />
+        <BooleanToVisibilityConverter x:Key="PrefVisibility" />
+        <BooleanToVisibilityConverter x:Key="NewsVisibility" />
+        
+    </views:MvxWpfView.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="4*"/>
-           
+            <ColumnDefinition Width="1.3*"/>
+
         </Grid.ColumnDefinitions>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type core:AllNewsModel}">
                 <local:NewsList/>
             </DataTemplate>
         </Grid.Resources>
-
-        <StackPanel Grid.Column="0" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding General, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>General</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Sports, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Sports</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Health, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Health</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Tech, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Tech</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Food, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Food</TextBlock>
-            </StackPanel>
-        </StackPanel>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Science, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Science</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Business, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Business</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Entertainment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Entertainment</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Politics, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Politics</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked ="{Binding Travel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Travel</TextBlock>
-            </StackPanel>
-        </StackPanel>
-
-        <DockPanel Grid.Column="2">
-            <TextBlock DockPanel.Dock="Top">Type Your Search Query</TextBlock>
-            <TextBox Height="Auto" Background="LightGray" FontSize="20" Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </DockPanel>
+        <components:MenuStrip Grid.ColumnSpan="5" Grid.Row="0"/>
         
-        <Button Grid.Column="3"  Content="Find News!" FontSize="20" Command="{Binding DoWorkCommand }" />
-        <ListBox   ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Background="Gray">
+        <components:UserPreferences Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsPreferencesVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:QSearchPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsQSearchVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:ASearchPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsASearchVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:FavoritesPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsFavoritesVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:HistoryPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsHistoryVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:SignInPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsSignInVisible, Converter={StaticResource PrefVisibility}}"/>
+
+        <components:WebBrowser Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsWebBrowserVisible, Converter={StaticResource PrefVisibility}}"/>
+        <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray" SelectedIndex="{Binding SelectedItem}">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="IsSelected" Value="True"/>
+                    </Trigger>
+                </Style.Triggers>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        
     </Grid>
     </views:MvxWpfView>
