@@ -6,8 +6,15 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="CefSharp.Common" Version="90.6.70" />
+    <PackageReference Include="CefSharp.Wpf" Version="90.6.70" />
+    <PackageReference Include="DotNetBrowser" Version="2.6.0" />
     <PackageReference Include="MvvmCross" Version="7.1.2" />
     <PackageReference Include="MvvmCross.Platforms.Wpf" Version="7.1.2" />
     <PackageReference Include="MvvmCross.Plugin.MethodBinding" Version="7.1.2" />

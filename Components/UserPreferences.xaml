@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewsApp.WPF.Components"
+             Width="1200"
              mc:Ignorable="d">
     <Grid>
 
@@ -71,7 +72,13 @@
             <TextBox Background="LightGray" FontSize="12" Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox Background="LightGray" FontSize="12"  Text="{Binding Domains, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox Background="LightGray" FontSize="12"  Text="{Binding Language, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <DatePicker Height="18" FontSize="8" HorizontalAlignment="Left" SelectedDate="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+            <WrapPanel>
+            <DatePicker DisplayDate="2021-01-01" Height="18" FontSize="8" HorizontalAlignment="Left" SelectedDate="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+            <TextBlock  DockPanel.Dock="Top" Margin="10,0,10,0" FontSize="12" Text="Date to" />
+            <DatePicker DisplayDate="2021-01-01" Height="18" FontSize="8" HorizontalAlignment="Left"  SelectedDate="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+            <TextBlock DockPanel.Dock="Top" Margin="10,0,10,0" FontSize="12" Text="News Limit" />
+            <TextBox Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox" Width="100"  Text="{Binding Limit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </WrapPanel>
         </StackPanel>
         <Button  Grid.Column="4" Height="55" VerticalAlignment="Top" Content="Save" FontSize="20" Command="{Binding SavePreferencesCommand }" />
     </Grid>

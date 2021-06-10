@@ -6,8 +6,17 @@
              xmlns:local="clr-namespace:NewsApp.WPF.Components"
              xmlns:ns="clr-namespace:NewsApp.WPF"
              mc:Ignorable="d" 
+             xmlns:wb="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
-        <WebBrowser ns:WebBrowserUtility.BindableSource="{Binding SelectedURL}" Name="wbMain"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <!--<WebBrowser ns:WebBrowserUtility.BindableSource="{Binding SelectedURL}" Name="wbMain"/>-->
+        <Button Command="{Binding BackToListCommand }" Grid.Row="0">Back to news list</Button>
+        <wb:ChromiumWebBrowser  Grid.Row="1" x:Name="Chrome" Address="{Binding SelectedURL}" ></wb:ChromiumWebBrowser>
     </Grid>
 </UserControl>
+    

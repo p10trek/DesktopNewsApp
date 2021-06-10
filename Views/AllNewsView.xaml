@@ -43,9 +43,10 @@
         <components:HistoryPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsHistoryVisible, Converter={StaticResource PrefVisibility}}"/>
         <components:SignInPanel Grid.ColumnSpan="5" Grid.Row="1" Visibility="{Binding IsSignInVisible, Converter={StaticResource PrefVisibility}}"/>
 
+
         <components:WebBrowser Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsWebBrowserVisible, Converter={StaticResource PrefVisibility}}"/>
         <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray" SelectedIndex="{Binding SelectedItem}">
-            <ListBox.ItemContainerStyle>
+          <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     <Style.Triggers>

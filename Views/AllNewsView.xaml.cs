@@ -17,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace NewsApp.WPF.Views
 {
     /// <summary>
@@ -31,20 +30,6 @@ namespace NewsApp.WPF.Views
         }
 
         public SecureString Password { get; set; }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //await GenericFactory<AllNewsViewModel>.CreateInstance().GetNews(new RequestModel
-            //{
-            //    Categories = "business,tech",
-            //    Search = "President",
-            //    Timeout = -1,
-            //    Limit = 5,
-            //    Token = "HgcpXI8z8J7yLHOCfRxpluxoGgUA7zYbGmq5PdAR",
-            //    Url = "https://api.thenewsapi.com/v1/news/all"
-            //});
-
-        }
 
     }
 }
