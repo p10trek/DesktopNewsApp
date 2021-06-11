@@ -7,6 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="30" Foreground="White">History:</Label>
+        <Label FontSize="30" VerticalAlignment="Center" Foreground="White">History:</Label>
     </Grid>
 </UserControl>

@@ -11,6 +11,6 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Label FontSize="30" Foreground="White" Grid.Row="1">Favorites List:</Label>
+        <Label FontSize="30" VerticalAlignment="Center" Foreground="White" Grid.Row="1">Favorites List:</Label>
     </Grid>
 </UserControl>

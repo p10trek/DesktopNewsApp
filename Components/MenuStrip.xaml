@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewsApp.WPF.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="Strip">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="Visibility" />
         <BooleanToVisibilityConverter x:Key="SignInButtonVisibility" />
@@ -14,7 +15,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
@@ -26,6 +27,6 @@
         <Button Grid.Column="3" Command="{Binding ShowFavoritesCommand }" Visibility="{Binding IsSignIn, Converter={StaticResource Visibility}}">Favorites</Button>
         <Button Grid.Column="4" Command="{Binding ShowHistoryCommand }" Visibility="{Binding IsSignIn, Converter={StaticResource Visibility}}">History</Button>
         <Button Grid.Column="5" Command="{Binding ShowSignInCommand }" Visibility="{Binding IsSignInButtonVisible, Converter={StaticResource SignInButtonVisibility}}">Login/Register</Button>
-        <Button Grid.Column="5" Command="{Binding LogOutCommand }" Visibility="{Binding IsLogOutButtonVisible, Converter={StaticResource LogOutButtonVisibility}}" >Logout</Button>
+        <Button Grid.Column="5" Command="{Binding LogOutCommand }" Visibility="{Binding IsLogOutButtonVisible, Converter={StaticResource LogOutButtonVisibility}}">Logout</Button>
     </Grid>
 </UserControl>

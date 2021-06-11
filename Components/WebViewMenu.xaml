@@ -12,12 +12,14 @@
     <Grid>
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         
         <Button Command="{Binding BackToListCommand }"  Grid.Column="0">Back to news list</Button>
-        <Button Command="{Binding AddToFavoritesCommand }" Visibility="{Binding IsSignIn, Converter={StaticResource Visibility}}"  Grid.Column="1">Add to favorites</Button>
+        <Button Command="{Binding SimilarNewsAsyncCommand }"  Grid.Column="1">Find similar news</Button>
+        <Button Command="{Binding AddToFavoritesCommand }" Visibility="{Binding IsSignIn, Converter={StaticResource Visibility}}"  Grid.Column="2">Add to favorites</Button>
         
     </Grid>
 </UserControl>
