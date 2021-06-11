@@ -45,6 +45,8 @@
 
 
         <components:WebBrowser Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsWebBrowserVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:FavoritesList Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsFavListVisible, Converter={StaticResource PrefVisibility}}"/>
+        <components:HistoryList Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Visibility="{Binding IsHistoryListVisible, Converter={StaticResource PrefVisibility}}"/>
         <ListBox Visibility="{Binding ResultPanelVisibility, Converter={StaticResource NewsVisibility}}" ItemsSource="{Binding NewsList}" Margin="4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Background="Gray" SelectedIndex="{Binding SelectedItem}">
           <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
